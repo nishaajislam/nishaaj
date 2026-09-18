@@ -1,0 +1,76 @@
+<script>
+    function createEarthParticles() {
+        const container = document.getElementById('earthParticles');
+        const particleCount = 15;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+
+            particle.style.left = Math.random() * 100 + '%';
+
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+
+            container.appendChild(particle);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        createEarthParticles();
+
+        const earthCard = document.querySelector('.earth-card');
+        earthCard.style.transform = 'translateY(50px) scale(0.9)';
+        earthCard.style.opacity = '0';
+
+        setTimeout(() => {
+            earthCard.style.transition = 'all 1s ease-out';
+            earthCard.style.transform = 'translateY(0) scale(1)';
+            earthCard.style.opacity = '1';
+        }, 300);
+    });
+
+    document.querySelector('.earth-icon').addEventListener('click', function() {
+        this.style.animation = 'none';
+        setTimeout(() => {
+            this.style.animation = 'earthRotate 20s linear infinite';
+        }, 100);
+    });
+
+    document.querySelectorAll('a[href^="mailto"]').forEach(link => {
+        link.addEventListener('click', function() {
+            const flash = document.createElement('div');
+            flash.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(56, 239, 125, 0.1), rgba(17, 153, 142, 0.1));
+                pointer-events: none;
+                z-index: 9999;
+                animation: flashGreen 0.5s ease-out;
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes flashGreen {
+                    0% { opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(flash);
+
+            setTimeout(() => {
+                document.body.removeChild(flash);
+                document.head.removeChild(style);
+            }, 500);
+        });
+    });
+</script>
