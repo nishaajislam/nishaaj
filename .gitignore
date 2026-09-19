@@ -1,0 +1,83 @@
+# ==========================================
+# Root & Shared Environment Settings
+# ==========================================
+# Allow standard .env files to be checked in as requested
+!.env
+
+# Block specific, environment-local variations that contain production secrets
+#.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+*.swo
+*.swp
+
+# ==========================================
+# Backend: Spring Boot / Java / Maven / Gradle
+# ==========================================
+# Build outputs
+backend/target/
+backend/build/
+backend/out/
+backend/.gradle/
+backend/bin/
+
+# Crash dumps & logs
+backend/*.log
+backend/hs_err_pid*
+backend/replay_pid*
+
+# Development databases & local caches
+backend/.lighthouse/
+backend/.testcontainers/
+
+# IDE Specific (Eclipse / IntelliJ / NetBeans)
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.factorypath
+backend/*.iml
+backend/*.ipr
+backend/*.iws
+backend/.idea/
+
+# ==========================================
+# Frontend: React / TypeScript / Vite / Node
+# ==========================================
+# Dependencies
+frontend/node_modules/
+frontend/jspm_packages/
+
+# Production build outputs
+frontend/dist/
+frontend/build/
+
+# Frontend logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# TypeScript/Vite cache files
+frontend/.vite/
+frontend/.tsbuildinfo
+
+# IDE Specific
+frontend/.idea/
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
+
+# ==========================================
+# Infrastructure & Containers
+# ==========================================
+# Docker / Compose data local overrides
+.docker/
+docker-compose.override.yml
