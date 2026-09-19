@@ -31,7 +31,7 @@ module.exports = {
     // -------------------------------------------------------------------
     navLinks: [
         { enabled: false, text: 'Tutorials', url: '', icon: 'collection-play' },
-        { enabled: true, text: 'Github', url: 'https://github.com/nishaajislam/nishaaj', icon: 'github' },
+        { enabled: true, text: 'Github', url: 'https://github.com/nishaajislam/', icon: 'github' },
         { enabled: true, text: 'Linkedin', url: 'https://www.linkedin.com/in/nishaaj-islam/', icon: 'linkedin' },
         { enabled: true, text: 'Contact', url: 'mailto:nishaaj2512@gmail.com', icon: 'person-lines-fill' },
         { enabled: false, text: 'About', url: '', icon: 'youtube' }
